@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use chrono::NaiveDate;
 
 /// Football Manager player position
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub enum Position {
     GK,   // Goalkeeper
     DR,   // Defender Right
