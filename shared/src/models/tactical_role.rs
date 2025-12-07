@@ -10,6 +10,17 @@ pub enum Duty {
     Automatic, // For goalkeepers only
 }
 
+impl Duty {
+    pub fn duty_name(&self) -> &'static str {
+        match self {
+            Duty::Defend => "Defend",
+            Duty::Support => "Support",
+            Duty::Attack => "Attack",
+            Duty::Automatic => "Automatic",
+        }
+    }
+}
+
 /// All available roles in Football Manager
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub enum RoleType {

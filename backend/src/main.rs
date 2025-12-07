@@ -1,4 +1,6 @@
 mod db;
+mod error;
+mod repository;
 
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use actix_cors::Cors;

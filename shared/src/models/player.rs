@@ -41,6 +41,30 @@ impl Position {
     }
 }
 
+impl std::str::FromStr for Position {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "GK" => Ok(Position::GK),
+            "DR" => Ok(Position::DR),
+            "DC" => Ok(Position::DC),
+            "DL" => Ok(Position::DL),
+            "WBR" => Ok(Position::WBR),
+            "WBL" => Ok(Position::WBL),
+            "DMC" => Ok(Position::DMC),
+            "MC" => Ok(Position::MC),
+            "MR" => Ok(Position::MR),
+            "ML" => Ok(Position::ML),
+            "AMR" => Ok(Position::AMR),
+            "AML" => Ok(Position::AML),
+            "AMC" => Ok(Position::AMC),
+            "STC" => Ok(Position::STC),
+            _ => Err(format!("Invalid position: {}", s)),
+        }
+    }
+}
+
 /// Complete player model with all Football Manager attributes
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Player {

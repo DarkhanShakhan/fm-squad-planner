@@ -13,7 +13,8 @@ actix-multipart = "0.7"
 tokio = { version = "1.42", features = ["full"] }
 
 # Database
-sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "sqlite", "migrate"] }
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "sqlite", "migrate", "chrono"] }
+chrono = "0.4"
 
 # CSV and data processing
 polars = { version = "0.44", features = ["lazy", "csv", "dtype-full"] }
@@ -35,3 +36,7 @@ log = "0.4"
 
 # Environment variables
 dotenvy = "0.15"
+
+[package.metadata.sqlx]
+# Skip compile-time query checking
+offline = false
