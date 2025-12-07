@@ -1,13 +1,14 @@
 use serde::{Deserialize, Serialize};
 use super::player::{Player, Position};
+use super::tactical_role::TacticalRole;
 
 /// Player assigned to a position in the squad
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SquadPlayer {
     pub player_id: i64,
     pub position: Position,   // Position on the pitch
-    pub role_id: Option<i64>, // Assigned role
-    pub suitability: Option<f32>, // Role suitability percentage
+    pub tactical_role: Option<TacticalRole>, // Assigned tactical role
+    pub suitability: Option<f32>, // Role suitability percentage (0-100)
 }
 
 /// Squad configuration with starting XI and substitutes
@@ -101,7 +102,6 @@ pub struct SquadWithPlayers {
 pub struct SquadPlayerWithData {
     pub player: Player,
     pub position: Position,
-    pub role_id: Option<i64>,
-    pub role_name: Option<String>,
+    pub tactical_role: Option<TacticalRole>,
     pub suitability: Option<f32>,
 }

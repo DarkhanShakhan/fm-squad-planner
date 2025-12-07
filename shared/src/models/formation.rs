@@ -1,13 +1,14 @@
 use serde::{Deserialize, Serialize};
 use super::player::Position;
+use super::tactical_role::TacticalRole;
 
-/// Position on the pitch with coordinates and assigned role
+/// Position on the pitch with coordinates and optional assigned tactical role
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct FormationPosition {
     pub position: Position,  // Position enum
     pub x: f32,             // X coordinate (0-100, left to right)
     pub y: f32,             // Y coordinate (0-100, bottom to top)
-    pub role: Option<String>, // Optional assigned role name
+    pub tactical_role: Option<TacticalRole>, // Optional assigned tactical role
 }
 
 /// Formation configuration with position layout

@@ -1,26 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use super::player::Position;
-
-/// Player duty for a role
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
-pub enum Duty {
-    Defend,
-    Support,
-    Attack,
-    Automatic, // For goalkeepers
-}
-
-impl Duty {
-    pub fn as_str(&self) -> &str {
-        match self {
-            Duty::Defend => "Defend",
-            Duty::Support => "Support",
-            Duty::Attack => "Attack",
-            Duty::Automatic => "Automatic",
-        }
-    }
-}
+use super::tactical_role::Duty;
 
 /// Role definition with attribute importance weights
 #[derive(Debug, Clone, Serialize, Deserialize)]
